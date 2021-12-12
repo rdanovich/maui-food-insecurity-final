@@ -1,0 +1,13 @@
+import matplotlib.pyplot as plt
+%matplotlib inline
+import pandas as pd 
+import seaborn as sns
+print("Setup Complete")
+food_insecurity = "../input/foodinsecurity/food insecurity.csv"
+
+food_data = pd.read_csv(food_insecurity, index_col="Year")
+
+plt.figure(figsize=(10, 8))
+plt.title("Average Annual Food Insecurity in Hawaii")
+sns.barplot(x=food_data.index, y=food_data["Food Insecurity Rate"])
+plt.ylabel("Food Insecurity Rate %")
